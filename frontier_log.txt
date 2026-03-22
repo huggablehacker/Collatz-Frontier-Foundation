@@ -1,28 +1,28 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-03-22 23:52:32 UTC  (2026-03-22 18:52:32 EST)
+Report generated : 2026-03-22 23:54:08 UTC  (2026-03-22 18:54:08 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147905339474825857
-  Offset from 2^68 : +160,122,000,001
-  Numbers covered  : ~192,185,000,000
-  Odd tested       : 96,092,500,000
+  Next n to test   : 295147905340023825857
+  Offset from 2^68 : +160,671,000,001
+  Numbers covered  : ~192,734,000,000
+  Odd tested       : 96,367,000,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 192,185
+  Chunks completed : 192,734
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
-   1. ITS-SL23-3890                  tested= 12,318,500,000  chunks=  24,637  avg= 3,818,233/sec
-   2. Collatz-Frontier-Worker1       tested=  5,466,000,000  chunks=  10,932  avg=   570,409/sec
-   3. Collatz-Frontier-Worker0       tested=  4,790,500,000  chunks=   9,581  avg=   499,306/sec
-   4. Collatz-Frontier-Worker2       tested=  4,685,500,000  chunks=   9,371  avg=   488,227/sec
+   1. ITS-SL23-3890                  tested= 12,441,000,000  chunks=  24,882  avg= 3,818,830/sec
+   2. Collatz-Frontier-Worker1       tested=  5,521,500,000  chunks=  11,043  avg=   570,552/sec
+   3. Collatz-Frontier-Worker0       tested=  4,840,500,000  chunks=   9,681  avg=   499,609/sec
+   4. Collatz-Frontier-Worker2       tested=  4,732,000,000  chunks=   9,464  avg=   488,217/sec
 
 ========================================================================
 This file is updated automatically every night at 8:00 PM EST.
-For live status visit: http://YOUR_COORDINATOR_IP:5555/status
+For live status visit: http://collatzfrontier.ddns.net:5555/status
