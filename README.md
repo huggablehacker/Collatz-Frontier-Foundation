@@ -83,13 +83,13 @@ If Waitress is installed it is used automatically — you'll see `Server: Waitre
 
 ```bash
 # All cores (default)
-python3 collatz_worker.py --coordinator http://192.168.1.100:5555
+python3 collatz_worker.py --coordinator http://collatzfrontier.ddns.net:5555
 
 # Limit cores
-python3 collatz_worker.py --coordinator http://192.168.1.100:5555 --cores 4
+python3 collatz_worker.py --coordinator http://collatzfrontier.ddns.net:5555 --cores 4
 
 # Named worker (shows up in logs and the status dashboard)
-python3 collatz_worker.py --coordinator http://192.168.1.100:5555 --name gpu-rig-2
+python3 collatz_worker.py --coordinator http://collatzfrontier.ddns.net:5555 --name gpu-rig-2
 ```
 
 Workers are stateless — add as many as you want at any time, including while already running.
@@ -199,7 +199,7 @@ COLLATZ_CHUNK=1000000 gunicorn -w 1 --threads 8 -b 0.0.0.0:5555 collatz_coordina
 
 | Flag | Default | Description |
 |---|---|---|
-| `--coordinator` | *(required)* | Coordinator URL, e.g. `http://192.168.1.100:5555` |
+| `--coordinator` | *(required)* | Coordinator URL, e.g. `http://collatzfrontier.ddns.net:5555` |
 | `--name` | hostname | Human-readable name for this worker |
 | `--cores` | all CPUs | Number of CPU cores to use |
 
