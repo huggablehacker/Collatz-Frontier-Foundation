@@ -4,6 +4,7 @@ A distributed, optimized brute-force search for counterexamples to the **Collatz
 
 > *"Mathematics is not yet ready for such problems."* — Paul Erdős
 
+See Live Status [HERE](http://collatzfrontier.ddns.net:5555/status)
 ---
 
 ## What is the Collatz Conjecture?
