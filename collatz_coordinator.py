@@ -264,31 +264,284 @@ def post_results():
 @app.route("/status", methods=["GET"])
 def status():
     with lock:
-        elapsed = time.time() - state["started_at"]
-        rate    = state["total_tested"] / elapsed if elapsed > 0 else 0
-        workers = list({v["worker"] for v in state["in_flight"].values()})
-        offset  = state["next_n"] - DEFAULT_START
+        now            = time.time()
+        elapsed        = now - state["started_at"]
+        rate           = state["total_tested"] / elapsed if elapsed > 0 else 0
+        active_workers = {v["worker"] for v in state["in_flight"].values()}
+        offset         = state["next_n"] - DEFAULT_START
+        in_flight_ct   = len(state["in_flight"])
+        total_workers  = len(worker_stats)
 
-    lines = [
-        "=" * 65,
-        " COLLATZ COORDINATOR  --  status",
-        "=" * 65,
-        f" Next n (frontier)  : {state['next_n']}",
-        f" Offset from 2^68   : +{offset:,}",
-        f" Chunks issued      : {state['chunks_issued']:,}",
-        f" Chunks completed   : {state['chunks_done']:,}",
-        f" In-flight          : {len(state['in_flight'])}",
-        f" Odd numbers tested : {state['total_tested']:,}",
-        f" Numbers covered    : ~{state['total_tested'] * 2:,}",
-        f" Rate (session)     : {rate:,.0f} odd/sec",
-        f" Active workers     : {workers}",
-        f" FAILs found        : {state['fails']}",
-        f" Elapsed            : {elapsed:,.1f}s",
-        "=" * 65,
-        "",
-        " \u2192  Top 50 Workers Leaderboard: <a href='/workers'>/workers</a>",
-    ]
-    return "<pre style='font-family:monospace'>" + "\n".join(lines) + "</pre>"
+    # Format elapsed as h m s
+    h, rem = divmod(int(elapsed), 3600)
+    m, s   = divmod(rem, 60)
+    elapsed_str = (f"{h}h {m}m {s}s" if h else f"{m}m {s}s" if m else f"{s}s")
+
+    # Format frontier n with thin-space thousands grouping
+    frontier_n = f"{state['next_n']:,}"
+
+    # Active worker pills
+    if active_workers:
+        pills = "".join(
+            f"<span class='pill'>{w}</span>" for w in sorted(active_workers)
+        )
+    else:
+        pills = "<span style='color:#475569'>none</span>"
+
+    # In-flight chunk rows
+    with lock:
+        inflight_snap = list(state["in_flight"].items())
+
+    if inflight_snap:
+        chunk_rows = ""
+        for cid, info in sorted(inflight_snap, key=lambda x: int(x[0])):
+            age = int(now - info["issued_at"])
+            age_str = f"{age}s"
+            warn = " style='color:#fb923c'" if age > 300 else ""
+            chunk_rows += (
+                f"<tr><td>#{cid}</td>"
+                f"<td style='font-family:monospace'>{info['worker']}</td>"
+                f"<td style='font-family:monospace;font-size:0.8em'>{info['start']}</td>"
+                f"<td{warn}>{age_str}</td></tr>"
+            )
+        inflight_html = f"""
+        <h2>In-flight chunks</h2>
+        <table>
+          <thead><tr>
+            <th>Chunk</th><th>Worker</th><th>Start n</th><th>Age</th>
+          </tr></thead>
+          <tbody>{chunk_rows}</tbody>
+        </table>"""
+    else:
+        inflight_html = ""
+
+    fail_color = "#f87171" if state["fails"] else "#4ade80"
+    fail_val   = str(state["fails"]) if state["fails"] else "0 &#10003;"
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="15">
+  <title>Collatz Frontier &mdash; Status</title>
+  <style>
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 2rem;
+      min-height: 100vh;
+    }}
+    h1 {{
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 0.25rem;
+    }}
+    h2 {{
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin: 1.75rem 0 0.75rem;
+    }}
+    .subtitle {{
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+    }}
+    .subtitle a {{
+      color: #60a5fa;
+      text-decoration: none;
+    }}
+    .subtitle a:hover {{ text-decoration: underline; }}
+
+    /* ── Stat cards ── */
+    .stats-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }}
+    .stat {{
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }}
+    .stat-label {{
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #64748b;
+      margin-bottom: 0.3rem;
+    }}
+    .stat-value {{
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+    }}
+    .stat-sub {{
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 0.2rem;
+    }}
+    .green  {{ color: #4ade80; }}
+    .blue   {{ color: #60a5fa; }}
+    .amber  {{ color: #fbbf24; }}
+    .purple {{ color: #a78bfa; }}
+
+    /* ── Frontier bar ── */
+    .frontier-box {{
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }}
+    .frontier-label {{
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #64748b;
+      margin-bottom: 0.4rem;
+    }}
+    .frontier-n {{
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      color: #a78bfa;
+      font-weight: 700;
+      word-break: break-all;
+    }}
+    .frontier-offset {{
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: 0.3rem;
+    }}
+
+    /* ── Active workers ── */
+    .pill {{
+      display: inline-block;
+      background: #0f4c81;
+      border: 1px solid #1e6aac;
+      color: #93c5fd;
+      border-radius: 9999px;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.78rem;
+      font-family: monospace;
+      margin: 0.2rem 0.2rem 0.2rem 0;
+    }}
+    .workers-box {{
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.5rem;
+    }}
+
+    /* ── In-flight table ── */
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }}
+    thead th {{
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.55rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }}
+    tbody tr {{ border-bottom: 1px solid #1e293b; }}
+    tbody tr:hover {{ background: #1e293b; }}
+    td {{ padding: 0.55rem 0.9rem; }}
+
+    .refresh-note {{
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #334155;
+    }}
+  </style>
+</head>
+<body>
+
+  <h1>&#9654; Collatz Frontier &mdash; Coordinator</h1>
+  <p class="subtitle">
+    Live status &nbsp;&bull;&nbsp;
+    <a href="/workers">&#127942; Top 50 Workers</a>
+    &nbsp;&bull;&nbsp;
+    <a href="https://github.com/huggablehacker/Collatz-Frontier" target="_blank">GitHub</a>
+  </p>
+
+  <!-- Frontier -->
+  <div class="frontier-box">
+    <div class="frontier-label">Current frontier &mdash; next n to be issued</div>
+    <div class="frontier-n">{frontier_n}</div>
+    <div class="frontier-offset">+{offset:,} beyond 2<sup>68</sup></div>
+  </div>
+
+  <!-- Key stats -->
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-label">Numbers covered</div>
+      <div class="stat-value blue">{state['total_tested'] * 2:,}</div>
+      <div class="stat-sub">{state['total_tested']:,} odd tested</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Session rate</div>
+      <div class="stat-value green">{rate:,.0f}</div>
+      <div class="stat-sub">odd integers / sec</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Chunks done</div>
+      <div class="stat-value">{state['chunks_done']:,}</div>
+      <div class="stat-sub">of {state['chunks_issued']:,} issued</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">In-flight</div>
+      <div class="stat-value amber">{in_flight_ct}</div>
+      <div class="stat-sub">chunks being worked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Active workers</div>
+      <div class="stat-value purple">{len(active_workers)}</div>
+      <div class="stat-sub">of {total_workers:,} total seen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">FAILs found</div>
+      <div class="stat-value" style="color:{fail_color}">{fail_val}</div>
+      <div class="stat-sub">potential counterexamples</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Session uptime</div>
+      <div class="stat-value">{elapsed_str}</div>
+      <div class="stat-sub">since last restart</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Chunk size</div>
+      <div class="stat-value">{state['chunk_size']:,}</div>
+      <div class="stat-sub">odd integers each</div>
+    </div>
+  </div>
+
+  <!-- Active workers -->
+  <h2>Active workers now</h2>
+  <div class="workers-box">{pills}</div>
+
+  {inflight_html}
+
+  <p class="refresh-note">Auto-refreshes every 15 seconds.</p>
+</body>
+</html>"""
+    return html
 
 
 @app.route("/workers", methods=["GET"])
