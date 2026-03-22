@@ -75,7 +75,7 @@ pip install gmpy2
 python3 collatz_coordinator.py
 ```
 
-If Waitress is installed it is used automatically — you'll see `Server: Waitress (production)` in the banner. Watch live progress at `http://<YOUR_IP>:5555/status`.
+If Waitress is installed it is used automatically — you'll see `Server: Waitress (production)` in the banner. Watch live progress at `http://collatzfrontier.ddns.net:5555/status`.
 
 ---
 
