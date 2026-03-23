@@ -29,9 +29,11 @@ Configuration via CLI flags (used when running directly):
   --start, --chunk, --port
 
 Endpoints:
-  GET  /chunk    -> assign next chunk to a worker
-  POST /results  -> worker submits FAILs for a completed chunk
-  GET  /status   -> live progress dashboard
+  GET  /chunk       -> assign next chunk to a worker
+  POST /results     -> worker submits FAILs for a completed chunk
+  GET  /status      -> live progress dashboard
+  GET  /workers     -> top 50 workers leaderboard
+  GET  /milestones  -> frontier milestone hall of fame
 """
 
 import json
@@ -79,12 +81,49 @@ state = {
 # { worker_id: {chunks, tested, fails, total_sec, first_seen, last_seen} }
 worker_stats = {}
 
+# ── Milestones ─────────────────────────────────────────────────────────────────
+# Tracks when the frontier n first crossed each named number threshold.
+# { milestone_name: {value, crossed_at, worker, frontier_n} }
+# "frontier_n" is the exact next_n value when the crossing was detected.
+
+MILESTONES = {
+    "Trillion":           10 **  12,
+    "Quadrillion":        10 **  15,
+    "Quintillion":        10 **  18,
+    "Sextillion":         10 **  21,
+    "Septillion":         10 **  24,
+    "Octillion":          10 **  27,
+    "Nonillion":          10 **  30,
+    "Decillion":          10 **  33,
+    "Undecillion":        10 **  36,
+    "Duodecillion":       10 **  39,
+    "Tredecillion":       10 **  42,
+    "Quattuordecillion":  10 **  45,
+    "Quindecillion":      10 **  48,
+    "Sexdecillion":       10 **  51,
+    "Septendecillion":    10 **  54,
+    "Octodecillion":      10 **  57,
+    "Novemdecillion":     10 **  60,
+    "Vigintillion":       10 **  63,
+    "Centillion":         10 ** 303,
+}
+
+# Milestones already crossed at startup (2^68 ≈ 2.95 × 10^20)
+# Trillion / Quadrillion / Quintillion are pre-crossed before we even start.
+# We record them as "pre-verified" so the page shows them correctly.
+_PRE_CROSSED = {
+    name for name, val in MILESTONES.items() if val < DEFAULT_START
+}
+
+milestone_log = {}   # populated from checkpoint or at runtime
+
 
 # ── Checkpoint ────────────────────────────────────────────────────────────────
 
 def save_checkpoint():
     data = {k: v for k, v in state.items() if k not in ("in_flight", "started_at")}
-    data["worker_stats"] = worker_stats
+    data["worker_stats"]  = worker_stats
+    data["milestone_log"] = milestone_log
     tmp  = CHECKPOINT_FILE + ".tmp"
     with open(tmp, "w") as f:
         json.dump(data, f, indent=2, default=str)
@@ -99,14 +138,37 @@ def load_checkpoint():
         with open(p) as f:
             saved = json.load(f)
         ws = saved.pop("worker_stats", {})
+        ml = saved.pop("milestone_log", {})
         state.update(saved)
         state["in_flight"]  = {}
         state["started_at"] = time.time()
         worker_stats.update(ws)
+        milestone_log.update(ml)
         return True
     except Exception as e:
         print(f"  Warning: checkpoint unreadable ({e}) -- fresh start")
         return False
+
+
+def _check_milestones(new_frontier_n, worker_id):
+    """
+    Called inside the lock after every chunk completion.
+    Records any milestone that the frontier just crossed for the first time.
+    new_frontier_n is the value of state["next_n"] after the update.
+    """
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    for name, value in MILESTONES.items():
+        if name not in milestone_log and new_frontier_n > value:
+            milestone_log[name] = {
+                "value":      str(value),
+                "crossed_at": ts,
+                "worker":     worker_id,
+                "frontier_n": str(new_frontier_n),
+            }
+            print(
+                f"\n  *** MILESTONE: {name} ({value:.2e}) crossed by '{worker_id}' ***\n",
+                flush=True
+            )
 
 
 # ── Startup (runs at import time — works under both Gunicorn and direct) ──────
@@ -145,6 +207,18 @@ def _startup(start_n=None, chunk_size=None):
             )
 
     threading.Thread(target=_watchdog, daemon=True).start()
+
+    # Seed milestones that were already crossed before this project started
+    # (Trillion, Quadrillion, Quintillion are all below 2^68)
+    for name in _PRE_CROSSED:
+        if name not in milestone_log:
+            milestone_log[name] = {
+                "value":      str(MILESTONES[name]),
+                "crossed_at": "before 2026 (pre-verified by prior work)",
+                "worker":     "Oliveira e Silva et al. (2010)",
+                "frontier_n": str(DEFAULT_START),
+            }
+
     return resumed
 
 
@@ -248,6 +322,9 @@ def post_results():
         w["fails"]     += len(fails)
         w["total_sec"] += elapsed
         w["last_seen"]  = now_ts
+
+        # Check if the frontier just crossed any named milestone
+        _check_milestones(state["next_n"], worker_id)
 
         save_checkpoint()
 
@@ -477,6 +554,8 @@ def status():
   <p class="subtitle">
     Live status &nbsp;&bull;&nbsp;
     <a href="/workers">&#127942; Top 50 Workers</a>
+    &nbsp;&bull;&nbsp;
+    <a href="/milestones">&#127937; Milestones</a>
     &nbsp;&bull;&nbsp;
     <a href="https://github.com/huggablehacker/Collatz-Frontier" target="_blank">GitHub</a>
   </p>
@@ -729,6 +808,227 @@ def workers_leaderboard():
    '</tr></thead><tbody>' + rows_html + '</tbody></table>'
    if ranked else
    '<div class="no-workers">No workers have submitted results yet.</div>'}
+
+  <p class="refresh-note">Auto-refreshes every 15 seconds.</p>
+</body>
+</html>"""
+    return html
+
+
+@app.route("/milestones", methods=["GET"])
+def milestones_page():
+    with lock:
+        ml_snap = dict(milestone_log)
+
+    # Build one row per milestone in order
+    rows_html = ""
+    for name, value in MILESTONES.items():
+        entry   = ml_snap.get(name)
+        sci     = f"{value:.2e}".replace("e+", " &times; 10<sup>").rstrip("0").rstrip(".") + "</sup>"
+        exp     = len(str(value)) - 1   # rough exponent for display
+        sci_str = f"10<sup>{exp}</sup>"
+
+        if entry:
+            is_pre = "Oliveira" in entry.get("worker", "")
+            badge  = (
+                "<span class='badge pre'>pre-verified</span>"
+                if is_pre else
+                "<span class='badge crossed'>&#10003; crossed</span>"
+            )
+            worker_cell = f"<span class='mono'>{entry['worker']}</span>"
+            time_cell   = f"{entry['crossed_at']}"
+            frontier_cell = (
+                "—" if is_pre else
+                f"<span class='mono small'>{entry['frontier_n']}</span>"
+            )
+        else:
+            badge         = "<span class='badge pending'>pending</span>"
+            worker_cell   = "<span style='color:#475569'>—</span>"
+            time_cell     = "<span style='color:#475569'>—</span>"
+            frontier_cell = "<span style='color:#475569'>—</span>"
+
+        rows_html += f"""
+        <tr>
+          <td class='name'>{name}</td>
+          <td class='sci'>{sci_str}</td>
+          <td>{badge}</td>
+          <td>{time_cell}</td>
+          <td>{worker_cell}</td>
+          <td>{frontier_cell}</td>
+        </tr>"""
+
+    crossed_count = sum(1 for n in MILESTONES if n in ml_snap)
+    next_milestone = next(
+        (n for n in MILESTONES if n not in ml_snap), None
+    )
+    next_value = MILESTONES[next_milestone] if next_milestone else None
+
+    if next_milestone:
+        current_n = state["next_n"]
+        remaining = next_value - current_n
+        next_info = (
+            f"Next: <strong>{next_milestone}</strong> "
+            f"(10<sup>{len(str(next_value))-1}</sup>) &mdash; "
+            f"still <strong>{remaining:,}</strong> integers away"
+        )
+    else:
+        next_info = "<strong>All milestones crossed!</strong>"
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="15">
+  <title>Collatz Frontier &mdash; Milestones</title>
+  <style>
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 2rem;
+      min-height: 100vh;
+    }}
+    h1 {{
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 0.25rem;
+    }}
+    .subtitle {{
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+    }}
+    .subtitle a {{
+      color: #60a5fa;
+      text-decoration: none;
+    }}
+    .subtitle a:hover {{ text-decoration: underline; }}
+
+    .progress-bar-wrap {{
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }}
+    .progress-label {{
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }}
+    .progress-track {{
+      background: #0f172a;
+      border-radius: 9999px;
+      height: 10px;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }}
+    .progress-fill {{
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      width: {min(100, crossed_count / len(MILESTONES) * 100):.1f}%;
+      transition: width 0.5s ease;
+    }}
+    .progress-text {{
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }}
+    .next-info {{
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }}
+
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }}
+    thead th {{
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+      white-space: nowrap;
+    }}
+    tbody tr {{
+      border-bottom: 1px solid #1e293b;
+      transition: background 0.1s;
+    }}
+    tbody tr:hover {{ background: #1e293b; }}
+    td {{
+      padding: 0.6rem 0.9rem;
+      vertical-align: middle;
+    }}
+    td.name  {{ font-weight: 600; color: #f1f5f9; }}
+    td.sci   {{ font-family: monospace; color: #94a3b8; font-size: 0.82rem; }}
+    td.small {{ font-size: 0.78rem; }}
+
+    .badge {{
+      display: inline-block;
+      border-radius: 9999px;
+      padding: 0.18rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }}
+    .badge.crossed {{ background: #14532d; color: #4ade80; border: 1px solid #166534; }}
+    .badge.pre     {{ background: #1e3a5f; color: #93c5fd; border: 1px solid #1d4ed8; }}
+    .badge.pending {{ background: #1e293b; color: #475569; border: 1px solid #334155; }}
+
+    .mono  {{ font-family: 'Courier New', monospace; font-size: 0.82rem; }}
+    .small {{ font-size: 0.78rem; color: #64748b; word-break: break-all; }}
+
+    .refresh-note {{
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #334155;
+    }}
+  </style>
+</head>
+<body>
+  <h1>&#127937; Collatz Frontier &mdash; Milestones</h1>
+  <p class="subtitle">
+    Frontier crossings of named large numbers &nbsp;&bull;&nbsp;
+    <a href="/status">&#8592; Status</a>
+    &nbsp;&bull;&nbsp;
+    <a href="/workers">&#127942; Workers</a>
+    &nbsp;&bull;&nbsp;
+    <a href="https://github.com/huggablehacker/Collatz-Frontier" target="_blank">GitHub</a>
+  </p>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-label">Milestones crossed &mdash; {crossed_count} of {len(MILESTONES)}</div>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+    <div class="progress-text">{crossed_count} / {len(MILESTONES)} ({crossed_count / len(MILESTONES) * 100:.1f}%)</div>
+    <div class="next-info">{next_info}</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Milestone</th>
+        <th>Value</th>
+        <th>Status</th>
+        <th>Crossed at</th>
+        <th>Worker</th>
+        <th>Frontier n at crossing</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows_html}
+    </tbody>
+  </table>
 
   <p class="refresh-note">Auto-refreshes every 15 seconds.</p>
 </body>
