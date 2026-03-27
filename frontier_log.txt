@@ -1,27 +1,27 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-03-26 01:00:00 UTC  (2026-03-25 20:00:00 EST)
+Report generated : 2026-03-27 01:00:00 UTC  (2026-03-26 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147906689317825857
-  Offset from 2^68 : +1,509,965,000,001
-  Numbers covered  : ~1,607,086,000,000
-  Odd tested       : 803,543,000,000
+  Next n to test   : 295147907027174825857
+  Offset from 2^68 : +1,847,822,000,001
+  Numbers covered  : ~1,947,809,000,000
+  Odd tested       : 973,904,500,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 1,607,086
+  Chunks completed : 1,947,809
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
-   1. ITS-SL23-3890                  tested=291,318,500,000  chunks= 582,637  avg= 3,778,456/sec
-   2. Collatz-Frontier-Worker1       tested=131,493,500,000  chunks= 262,987  avg=   535,298/sec
-   3. Collatz-Frontier-Worker2       tested=125,296,500,000  chunks= 250,593  avg=   510,025/sec
-   4. Collatz-Frontier-Worker0       tested=115,396,000,000  chunks= 230,792  avg=   469,748/sec
+   1. ITS-SL23-3890                  tested=348,447,500,000  chunks= 696,895  avg= 3,794,242/sec
+   2. Collatz-Frontier-Worker1       tested=174,442,000,000  chunks= 348,884  avg=   539,119/sec
+   3. Collatz-Frontier-Worker2       tested=162,640,500,000  chunks= 325,281  avg=   502,533/sec
+   4. Collatz-Frontier-Worker0       tested=148,336,000,000  chunks= 296,672  avg=   458,156/sec
    5. DESKTOP-IU5CS8D                tested= 71,206,500,000  chunks= 142,413  avg= 3,939,153/sec
 
 ========================================================================
