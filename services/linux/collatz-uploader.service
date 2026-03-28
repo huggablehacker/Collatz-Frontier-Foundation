@@ -1,0 +1,32 @@
+[Unit]
+Description=Collatz Frontier Nightly Uploader
+Documentation=https://github.com/huggablehacker/Collatz-Frontier
+After=network.target collatz.service
+# Wait for the coordinator to be up first (if running on same machine)
+Wants=network-online.target
+
+[Service]
+# ── Change these two lines to match your setup ────────────────
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/collatz
+# ─────────────────────────────────────────────────────────────
+
+# Runs the built-in 8pm EST scheduler (loops forever, fires once/day)
+ExecStart=/usr/bin/python3 collatz_upload_frontier.py
+
+# GitHub token — required for uploads
+# Environment="GITHUB_TOKEN=ghp_your_token_here"
+
+# Restart automatically if it crashes
+Restart=always
+RestartSec=10
+
+TimeoutStartSec=30
+TimeoutStopSec=15
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=collatz-uploader
+
+[Install]
+WantedBy=multi-user.target

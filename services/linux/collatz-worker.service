@@ -1,0 +1,47 @@
+[Unit]
+Description=Collatz Frontier Worker
+Documentation=https://github.com/huggablehacker/Collatz-Frontier
+After=network.target network-online.target
+Wants=network-online.target
+
+# Automatically restart if the coordinator goes away and comes back
+StartLimitIntervalSec=0
+
+[Service]
+# ── Change these to match your setup ─────────────────────────
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/collatz
+
+# Coordinator URL and worker name — set these:
+Environment="COLLATZ_COORDINATOR=http://192.168.1.100:5555"
+Environment="COLLATZ_WORKER_NAME=my-machine"
+Environment="COLLATZ_CORES=0"
+# COLLATZ_CORES=0 means use all CPU cores (recommended)
+# Set to a number e.g. 4 to limit core usage
+# ─────────────────────────────────────────────────────────────
+
+ExecStart=/bin/bash -c '\
+  CORES=${COLLATZ_CORES:-0}; \
+  CORE_ARG=""; \
+  [ "$CORES" != "0" ] && CORE_ARG="--cores $CORES"; \
+  exec /usr/bin/python3 collatz_worker.py \
+    --coordinator "$COLLATZ_COORDINATOR" \
+    --name "$COLLATZ_WORKER_NAME" \
+    $CORE_ARG'
+
+# Restart always — reconnects automatically if coordinator restarts
+Restart=always
+RestartSec=10
+
+# Give the worker time to finish its current chunk cleanly on stop
+TimeoutStopSec=60
+KillMode=mixed
+# SIGTERM first (worker catches it and exits cleanly), then SIGKILL
+KillSignal=SIGTERM
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=collatz-worker
+
+[Install]
+WantedBy=multi-user.target

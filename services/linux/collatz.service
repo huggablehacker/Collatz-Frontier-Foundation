@@ -1,0 +1,45 @@
+[Unit]
+Description=Collatz Frontier Coordinator
+Documentation=https://github.com/huggablehacker/Collatz-Frontier
+After=network.target
+Wants=network-online.target
+
+[Service]
+# ── Change these three lines to match your setup ──────────────
+# The user account that owns the coordinator files
+User=YOUR_USERNAME
+
+# Full path to the folder containing collatz_coordinator.py
+WorkingDirectory=/home/YOUR_USERNAME/collatz
+
+# Full path to your Python/gunicorn (find with: which gunicorn)
+ExecStart=/home/YOUR_USERNAME/Library/Python/3.9/bin/gunicorn \
+          -w 1 \
+          --threads 32 \
+          -b 0.0.0.0:5555 \
+          collatz_coordinator:app
+# ─────────────────────────────────────────────────────────────
+
+# Restart automatically if the process dies for any reason
+Restart=always
+RestartSec=5
+
+# Give it 30 seconds to start before systemd considers it failed
+TimeoutStartSec=30
+
+# Clean shutdown — sends SIGTERM, waits 30s, then SIGKILL
+TimeoutStopSec=30
+KillMode=mixed
+
+# Logging — view with: journalctl -u collatz -f
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=collatz
+
+# Environment — add your GitHub token here for nightly uploads
+# Environment="GITHUB_TOKEN=ghp_your_token_here"
+# Environment="COLLATZ_CHUNK=500000"
+
+[Install]
+# Start automatically on boot
+WantedBy=multi-user.target
