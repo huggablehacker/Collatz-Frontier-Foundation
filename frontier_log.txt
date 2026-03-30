@@ -1,33 +1,33 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-03-29 16:09:40 UTC  (2026-03-29 11:09:40 EST)
+Report generated : 2026-03-30 01:00:00 UTC  (2026-03-29 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147907713642057857
-  Offset from 2^68 : +2,534,289,232,001
-  Numbers covered  : ~2,699,060,852,000
-  Odd tested       : 1,349,530,426,000
+  Next n to test   : 295147907874888629857
+  Offset from 2^68 : +2,695,535,804,001
+  Numbers covered  : ~2,882,585,160,000
+  Odd tested       : 1,441,292,580,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 5,506,748
+  Chunks completed : 6,164,694
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. Collatz-Frontier-Worker1       tested=1,255,790,992,000  chunks=3,861,905  avg=   762,289/sec
-   2. DESKTOP-IU5CS8D                tested= 11,657,000,000  chunks=  23,314  avg= 4,173,058/sec
-   3. 1bc56ada-8d9d-4c94-bc04-ef358eb54b94 tested=  3,876,500,000  chunks=   7,753  avg=   556,821/sec
-   4. f65182fc-99da-4cb9-8a57-f7832dcecd46 tested=  3,351,500,000  chunks=   6,703  avg=   481,284/sec
-   5. 2b2037b2-852b-424e-b91e-230acaccdf2a tested=  3,096,000,000  chunks=   6,192  avg=   449,333/sec
-   6. da                             tested=  2,362,458,000  chunks=1,181,229  avg= 2,771,459/sec
-   7. Rebyc Laptops                  tested=    190,968,000  chunks=  95,484  avg=   726,869/sec
-   8. Wheezy                         tested=     92,408,000  chunks=  46,204  avg=   469,703/sec
-   9. 0301e70f-c301-4df7-b0bf-86ef9eda9982 tested=     74,894,000  chunks=  37,447  avg=   809,700/sec
-  10. a37ef45d-c5aa-45b9-a8be-40defebbb9e6 tested=     71,244,000  chunks=  35,622  avg=   310,499/sec
+   2. DESKTOP-IU5CS8D                tested= 55,697,000,000  chunks= 111,394  avg= 3,898,446/sec
+   3. 1bc56ada-8d9d-4c94-bc04-ef358eb54b94 tested= 21,518,500,000  chunks=  43,037  avg=   562,385/sec
+   4. f65182fc-99da-4cb9-8a57-f7832dcecd46 tested= 18,469,500,000  chunks=  36,939  avg=   482,355/sec
+   5. 2b2037b2-852b-424e-b91e-230acaccdf2a tested= 17,105,500,000  chunks=  34,211  avg=   447,333/sec
+   6. da                             tested=  2,889,398,000  chunks=1,444,699  avg= 2,735,110/sec
+   7. 7a359334-c4b9-4a52-994a-3365d63f351e tested=    294,026,000  chunks= 147,013  avg=   332,192/sec
+   8. Rebyc Laptops                  tested=    190,968,000  chunks=  95,484  avg=   726,869/sec
+   9. a37ef45d-c5aa-45b9-a8be-40defebbb9e6 tested=    187,212,000  chunks=  93,606  avg=   326,917/sec
+  10. 0301e70f-c301-4df7-b0bf-86ef9eda9982 tested=    134,172,000  chunks=  67,086  avg=   827,186/sec
 
 ========================================================================
 This file is updated automatically every night at 8:00 PM EST.
