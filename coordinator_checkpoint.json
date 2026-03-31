@@ -1,0 +1,130 @@
+{
+  "next_n": 295147905190243521857,
+  "chunk_size": 500000,
+  "chunks_issued": 54113,
+  "chunks_done": 54093,
+  "total_tested": 7391436000,
+  "fails": 0,
+  "worker_stats": {
+    "a37ef45d-c5aa-45b9-a8be-40defebbb9e6": {
+      "name": "kf",
+      "chunks": 7414,
+      "tested": 14828000,
+      "fails": 0,
+      "total_sec": 32.37100000000107,
+      "first_seen": "2026-03-31 00:31:19",
+      "last_seen": "2026-03-31 00:55:44"
+    },
+    "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
+      "name": "Collatz-Frontier-Worker1",
+      "chunks": 2681,
+      "tested": 1340500000,
+      "fails": 0,
+      "total_sec": 2425.0738620758057,
+      "first_seen": "2026-03-31 00:31:22",
+      "last_seen": "2026-03-31 01:12:57"
+    },
+    "2b2037b2-852b-424e-b91e-230acaccdf2a": {
+      "name": "Collatz-Frontier-Worker0",
+      "chunks": 2156,
+      "tested": 1078000000,
+      "fails": 0,
+      "total_sec": 2429.9705798625946,
+      "first_seen": "2026-03-31 00:31:22",
+      "last_seen": "2026-03-31 01:12:58"
+    },
+    "DESKTOP-IU5CS8D": {
+      "name": "DESKTOP-IU5CS8D",
+      "chunks": 7529,
+      "tested": 3764500000,
+      "fails": 0,
+      "total_sec": 866.6690948009491,
+      "first_seen": "2026-03-31 00:31:22",
+      "last_seen": "2026-03-31 01:12:58"
+    },
+    "da": {
+      "name": "da",
+      "chunks": 20652,
+      "tested": 41304000,
+      "fails": 0,
+      "total_sec": 20.664000000002275,
+      "first_seen": "2026-03-31 00:31:22",
+      "last_seen": "2026-03-31 01:12:58"
+    },
+    "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
+      "name": "Collatz-Frontier-Worker2",
+      "chunks": 2259,
+      "tested": 1129500000,
+      "fails": 0,
+      "total_sec": 2427.9989552497864,
+      "first_seen": "2026-03-31 00:31:22",
+      "last_seen": "2026-03-31 01:12:57"
+    },
+    "60b53a8b-e81e-4722-85de-e53642bf3198": {
+      "name": "ITS-SL23-3890-WW",
+      "chunks": 11402,
+      "tested": 22804000,
+      "fails": 0,
+      "total_sec": 27.681999999999164,
+      "first_seen": "2026-03-31 00:31:23",
+      "last_seen": "2026-03-31 01:12:58"
+    }
+  },
+  "milestone_log": {
+    "Trillion": {
+      "value": "1000000000000",
+      "crossed_at": "before 2026 (pre-verified by prior work)",
+      "worker": "Oliveira e Silva et al. (2010)",
+      "frontier_n": "295147905179352825856"
+    },
+    "Quadrillion": {
+      "value": "1000000000000000",
+      "crossed_at": "before 2026 (pre-verified by prior work)",
+      "worker": "Oliveira e Silva et al. (2010)",
+      "frontier_n": "295147905179352825856"
+    },
+    "Quintillion": {
+      "value": "1000000000000000000",
+      "crossed_at": "before 2026 (pre-verified by prior work)",
+      "worker": "Oliveira e Silva et al. (2010)",
+      "frontier_n": "295147905179352825856"
+    }
+  },
+  "worker_registry": {
+    "a37ef45d-c5aa-45b9-a8be-40defebbb9e6": {
+      "name": "kf",
+      "hostname": "web-worker",
+      "ip": "173.187.45.56",
+      "first_seen": "2026-03-31 00:31:19",
+      "last_seen": "2026-03-31 00:55:44"
+    },
+    "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
+      "name": "Collatz-Frontier-Worker2",
+      "hostname": "Collatz-Frontier-Worker2",
+      "ip": "164.92.83.33",
+      "first_seen": "2026-03-31 00:31:21",
+      "last_seen": "2026-03-31 01:12:57"
+    },
+    "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
+      "name": "Collatz-Frontier-Worker1",
+      "hostname": "Collatz-Frontier-Worker1",
+      "ip": "64.23.159.163",
+      "first_seen": "2026-03-31 00:31:21",
+      "last_seen": "2026-03-31 01:12:57"
+    },
+    "2b2037b2-852b-424e-b91e-230acaccdf2a": {
+      "name": "Collatz-Frontier-Worker0",
+      "hostname": "Collatz-Frontier-Worker0",
+      "ip": "164.92.65.173",
+      "first_seen": "2026-03-31 00:31:21",
+      "last_seen": "2026-03-31 01:12:58"
+    },
+    "60b53a8b-e81e-4722-85de-e53642bf3198": {
+      "name": "ITS-SL23-3890-WW",
+      "hostname": "web-worker",
+      "ip": "173.187.45.56",
+      "first_seen": "2026-03-31 00:31:23",
+      "last_seen": "2026-03-31 01:12:58"
+    }
+  },
+  "coordinator_secret": ""
