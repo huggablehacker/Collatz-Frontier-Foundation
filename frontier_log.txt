@@ -1,0 +1,31 @@
+COLLATZ FRONTIER — NIGHTLY STATUS REPORT
+========================================================================
+Report generated : 2026-03-31 01:00:00 UTC  (2026-03-30 20:00:00 EST)
+Repository       : https://github.com/huggablehacker/Collatz-Frontier
+
+FRONTIER
+------------------------------------------------------------------------
+  Next n to test   : 295147905189368585857
+  Offset from 2^68 : +10,015,760,001
+  Numbers covered  : ~10,003,724,000
+  Odd tested       : 5,001,862,000
+
+PROGRESS
+------------------------------------------------------------------------
+  Chunks completed : 39,068
+  Chunk size       : 500,000 odd numbers
+  FAILs found      : 0  (none — conjecture holds for all tested)
+
+TOP 10 WORKERS (all-time)
+------------------------------------------------------------------------
+   1. DESKTOP-IU5CS8D                tested=  2,509,500,000  chunks=   5,019  avg= 4,161,756/sec
+   2. 1bc56ada-8d9d-4c94-bc04-ef358eb54b94 tested=    918,000,000  chunks=   1,836  avg=   554,972/sec
+   3. f65182fc-99da-4cb9-8a57-f7832dcecd46 tested=    776,500,000  chunks=   1,553  avg=   468,955/sec
+   4. 2b2037b2-852b-424e-b91e-230acaccdf2a tested=    739,500,000  chunks=   1,479  avg=   446,514/sec
+   5. da                             tested=     27,992,000  chunks=  13,996  avg= 1,998,857/sec
+   6. 60b53a8b-e81e-4722-85de-e53642bf3198 tested=     15,542,000  chunks=   7,771  avg=   832,236/sec
+   7. a37ef45d-c5aa-45b9-a8be-40defebbb9e6 tested=     14,828,000  chunks=   7,414  avg=   458,064/sec
+
+========================================================================
+This file is updated automatically every night at 8:00 PM EST.
+For live status visit: http://collatzfrontier.ddns.net:5555/status
