@@ -120,11 +120,6 @@ sudo systemctl restart collatz-worker  # restart after updates
 
 No Python required. Download the pre-built package, double-click `launch_worker.bat`, enter the network URL when prompted, and you're contributing.
 
-To build the package yourself:
-1. Install Python from python.org (check "Add Python to PATH")
-2. Copy all `.py` files and `services/windows/` into one folder
-3. Double-click `build_windows.bat`
-
 See `services/windows/HOW-TO.md` for full details.
 
 ---
