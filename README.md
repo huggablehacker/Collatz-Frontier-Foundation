@@ -281,12 +281,6 @@ Pull requests welcome. High-impact directions:
 
 ---
 
-## Academic Paper
-
-A peer-review ready paper covering the formal proofs, algorithm design, distributed architecture, and experimental results is in [`docs/`](docs/). Formatted for submission to *Mathematics of Computation* (AMS) using the official `mcom-l` LaTeX class.
-
----
-
 ## License
 
 MIT. See [LICENSE](https://github.com/huggablehacker/Collatz-Frontier/blob/main/LICENSE) for details.
