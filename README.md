@@ -243,10 +243,8 @@ Collatz-Frontier/
 │
 └── docs/
     ├── HOW-TO_GUIDE.md              ← Full guide (all roles)
-    ├── API_REFERENCE.md             ← Network API documentation
-    ├── SECURITY_AND_TESTING.md      ← Security assessment and test plan
-    ├── Collatz_Academic_Paper.docx  ← Peer-review paper (Word)
-    └── collatz_mcom.tex             ← Peer-review paper (AMS MCOM LaTeX)
+    └──  API_REFERENCE.md             ← Network API documentation
+
 ```
 
 ---
