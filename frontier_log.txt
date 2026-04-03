@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-04-02 18:39:38 UTC  (2026-04-02 13:39:38 EST)
+Report generated : 2026-04-03 01:00:00 UTC  (2026-04-02 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147906394287669857
-  Offset from 2^68 : +1,214,934,844,001
-  Numbers covered  : ~1,411,132,412,000
-  Odd tested       : 705,566,206,000
+  Next n to test   : 295147906557577265857
+  Offset from 2^68 : +1,378,224,440,001
+  Numbers covered  : ~1,604,668,996,000
+  Odd tested       : 802,334,498,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 2,848,214
+  Chunks completed : 3,218,686
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,24 +23,26 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. DESKTOP-IU5CS8D             
-      tested=186,930,000,000  chunks= 373,860  avg= 3,784,080/sec
+      tested=214,794,500,000  chunks= 429,589  avg= 3,737,167/sec
    2. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=179,170,500,000  chunks= 358,341  avg= 3,862,993/sec
+      tested=209,609,000,000  chunks= 419,218  avg= 3,880,651/sec
    3. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=120,555,500,000  chunks= 241,111  avg=   511,287/sec
+      tested=132,619,500,000  chunks= 265,239  avg=   513,290/sec
    4. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=111,602,000,000  chunks= 223,204  avg=   472,933/sec
+      tested=122,713,500,000  chunks= 245,427  avg=   474,554/sec
    5. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=104,383,500,000  chunks= 208,767  avg=   442,093/sec
-   6. ITS-SL23-3890-WW              [60b53a8b…]
-      tested=  1,273,588,000  chunks= 636,794  avg=   289,584/sec
-   7. DESKTOP-IU5CS8D-WW            [c5680521…]
-      tested=    722,578,000  chunks= 361,289  avg=   233,214/sec
-   8. da                          
+      tested=114,585,500,000  chunks= 229,171  avg=   442,862/sec
+   6. DESKTOP-87NS8M9               [bb7fb2f7…]
+      tested=  4,732,500,000  chunks=   9,465  avg= 1,324,657/sec
+   7. ITS-SL23-3890-WW              [60b53a8b…]
+      tested=  1,435,898,000  chunks= 717,949  avg=   288,193/sec
+   8. DESKTOP-IU5CS8D-WW            [c5680521…]
+      tested=    771,236,000  chunks= 385,618  avg=   232,563/sec
+   9. da                          
       tested=    661,852,000  chunks= 330,926  avg= 1,993,590/sec
-   9. kf                            [a37ef45d…]
-      tested=    227,688,000  chunks= 113,844  avg=   345,925/sec
+  10. kf                            [a37ef45d…]
+      tested=    288,750,000  chunks= 144,375  avg=   276,437/sec
 
 ========================================================================
-This file is updated automatically every night at 9:00 PM EST.
-For live status visit: http://collatzfrontier.ddns.net:5555/status
+This file is updated automatically every night at 8:00 PM EST.
+For live status visit: http://YOUR_COORDINATOR_IP:5555/status
