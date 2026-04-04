@@ -1,37 +1,37 @@
 {
-  "next_n": 295147906557577265857,
+  "next_n": 295147906797326757857,
   "chunk_size": 500000,
-  "chunks_issued": 3218735,
-  "chunks_done": 3218686,
-  "total_tested": 802334498000,
+  "chunks_issued": 3829314,
+  "chunks_done": 3829256,
+  "total_tested": 978882514000,
   "fails": 0,
   "worker_stats": {
     "a37ef45d-c5aa-45b9-a8be-40defebbb9e6": {
       "name": "kf",
-      "chunks": 144375,
-      "tested": 288750000,
+      "chunks": 271394,
+      "tested": 542788000,
       "fails": 0,
-      "total_sec": 1044.5419999995818,
+      "total_sec": 1998.3470000003065,
       "first_seen": "2026-03-31 00:31:19",
-      "last_seen": "2026-04-03 00:44:08"
+      "last_seen": "2026-04-04 00:02:02"
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
-      "chunks": 265239,
-      "tested": 132619500000,
+      "chunks": 354124,
+      "tested": 177062000000,
       "fails": 0,
-      "total_sec": 258371.5905969143,
+      "total_sec": 343929.9005622864,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
-      "chunks": 229171,
-      "tested": 114585500000,
+      "chunks": 304575,
+      "tested": 152287500000,
       "fails": 0,
-      "total_sec": 258738.4845416546,
+      "total_sec": 344454.44232678413,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "DESKTOP-IU5CS8D": {
       "name": "DESKTOP-IU5CS8D",
@@ -53,21 +53,21 @@
     },
     "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
       "name": "Collatz-Frontier-Worker2",
-      "chunks": 245427,
-      "tested": 122713500000,
+      "chunks": 330597,
+      "tested": 165298500000,
       "fails": 0,
-      "total_sec": 258587.17314219475,
+      "total_sec": 344222.90237236023,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "60b53a8b-e81e-4722-85de-e53642bf3198": {
       "name": "ITS-SL23-3890-WW",
-      "chunks": 717949,
-      "tested": 1435898000,
+      "chunks": 849438,
+      "tested": 1698876000,
       "fails": 0,
-      "total_sec": 4982.422000020454,
+      "total_sec": 6022.624000034033,
       "first_seen": "2026-03-31 00:31:23",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:47:08"
     },
     "c5680521-480e-4288-b584-51243d9c7376": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -80,12 +80,12 @@
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
-      "chunks": 419218,
-      "tested": 209609000000,
+      "chunks": 513674,
+      "tested": 256837000000,
       "fails": 0,
-      "total_sec": 54013.873710393906,
+      "total_sec": 65367.010610342026,
       "first_seen": "2026-03-31 10:26:54",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:47:08"
     },
     "9e331a72-8b82-4dfb-857b-c273d2b70ad9": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -98,12 +98,12 @@
     },
     "bb7fb2f7-686e-42de-a27f-f7145a67a4c6": {
       "name": "DESKTOP-87NS8M9",
-      "chunks": 9465,
-      "tested": 4732500000,
+      "chunks": 17612,
+      "tested": 8806000000,
       "fails": 0,
-      "total_sec": 3572.6238424777985,
+      "total_sec": 6884.648370504379,
       "first_seen": "2026-04-02 20:56:07",
-      "last_seen": "2026-04-03 00:44:15"
+      "last_seen": "2026-04-03 13:10:01"
     }
   },
   "milestone_log": {
@@ -132,35 +132,35 @@
       "hostname": "web-worker",
       "ip": "173.187.45.56",
       "first_seen": "2026-03-31 00:31:19",
-      "last_seen": "2026-04-03 00:44:08"
+      "last_seen": "2026-04-04 00:02:02"
     },
     "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
       "name": "Collatz-Frontier-Worker2",
       "hostname": "Collatz-Frontier-Worker2",
       "ip": "164.92.83.33",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
       "hostname": "Collatz-Frontier-Worker1",
       "ip": "64.23.159.163",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
       "hostname": "Collatz-Frontier-Worker0",
       "ip": "164.92.65.173",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:59:59"
     },
     "60b53a8b-e81e-4722-85de-e53642bf3198": {
       "name": "ITS-SL23-3890-WW",
       "hostname": "web-worker",
       "ip": "173.187.45.56",
       "first_seen": "2026-03-31 00:31:23",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:47:08"
     },
     "c5680521-480e-4288-b584-51243d9c7376": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -174,7 +174,7 @@
       "hostname": "ITS-SL23-3890",
       "ip": "173.187.45.56",
       "first_seen": "2026-03-31 10:26:54",
-      "last_seen": "2026-04-03 00:59:59"
+      "last_seen": "2026-04-04 00:47:08"
     },
     "9e331a72-8b82-4dfb-857b-c273d2b70ad9": {
       "name": "Browser-h0y5",
@@ -188,7 +188,7 @@
       "hostname": "DESKTOP-87NS8M9",
       "ip": "173.187.45.56",
       "first_seen": "2026-04-02 20:56:05",
-      "last_seen": "2026-04-03 00:44:15"
+      "last_seen": "2026-04-03 13:10:01"
     }
   },
   "_upload_note": "coordinator_secret has been redacted for security. This file cannot be used to verify prize claims without the original secret."
