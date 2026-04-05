@@ -1,9 +1,9 @@
 {
-  "next_n": 295147906797326757857,
+  "next_n": 295147906950313065857,
   "chunk_size": 500000,
-  "chunks_issued": 3829314,
-  "chunks_done": 3829256,
-  "total_tested": 978882514000,
+  "chunks_issued": 4165634,
+  "chunks_done": 4165575,
+  "total_tested": 1122871086000,
   "fails": 0,
   "worker_stats": {
     "a37ef45d-c5aa-45b9-a8be-40defebbb9e6": {
@@ -17,21 +17,21 @@
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
-      "chunks": 354124,
-      "tested": 177062000000,
+      "chunks": 444593,
+      "tested": 222296500000,
       "fails": 0,
-      "total_sec": 343929.9005622864,
+      "total_sec": 429527.5739071369,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
-      "chunks": 304575,
-      "tested": 152287500000,
+      "chunks": 379620,
+      "tested": 189810000000,
       "fails": 0,
-      "total_sec": 344454.44232678413,
+      "total_sec": 430185.6991240978,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "DESKTOP-IU5CS8D": {
       "name": "DESKTOP-IU5CS8D",
@@ -53,21 +53,21 @@
     },
     "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
       "name": "Collatz-Frontier-Worker2",
-      "chunks": 330597,
-      "tested": 165298500000,
+      "chunks": 418332,
+      "tested": 209166000000,
       "fails": 0,
-      "total_sec": 344222.90237236023,
+      "total_sec": 429853.22127842903,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "60b53a8b-e81e-4722-85de-e53642bf3198": {
       "name": "ITS-SL23-3890-WW",
-      "chunks": 849438,
-      "tested": 1698876000,
+      "chunks": 897974,
+      "tested": 1795948000,
       "fails": 0,
-      "total_sec": 6022.624000034033,
+      "total_sec": 6276.1430000389055,
       "first_seen": "2026-03-31 00:31:23",
-      "last_seen": "2026-04-04 00:47:08"
+      "last_seen": "2026-04-05 00:47:05"
     },
     "c5680521-480e-4288-b584-51243d9c7376": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -80,12 +80,12 @@
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
-      "chunks": 513674,
-      "tested": 256837000000,
+      "chunks": 548208,
+      "tested": 274104000000,
       "fails": 0,
-      "total_sec": 65367.010610342026,
+      "total_sec": 69555.45957612991,
       "first_seen": "2026-03-31 10:26:54",
-      "last_seen": "2026-04-04 00:47:08"
+      "last_seen": "2026-04-05 00:47:05"
     },
     "9e331a72-8b82-4dfb-857b-c273d2b70ad9": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -139,28 +139,28 @@
       "hostname": "Collatz-Frontier-Worker2",
       "ip": "164.92.83.33",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
       "hostname": "Collatz-Frontier-Worker1",
       "ip": "64.23.159.163",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
       "hostname": "Collatz-Frontier-Worker0",
       "ip": "164.92.65.173",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-04-04 00:59:59"
+      "last_seen": "2026-04-05 00:59:59"
     },
     "60b53a8b-e81e-4722-85de-e53642bf3198": {
       "name": "ITS-SL23-3890-WW",
       "hostname": "web-worker",
       "ip": "173.187.45.56",
       "first_seen": "2026-03-31 00:31:23",
-      "last_seen": "2026-04-04 00:47:08"
+      "last_seen": "2026-04-05 00:47:05"
     },
     "c5680521-480e-4288-b584-51243d9c7376": {
       "name": "DESKTOP-IU5CS8D-WW",
@@ -174,7 +174,7 @@
       "hostname": "ITS-SL23-3890",
       "ip": "173.187.45.56",
       "first_seen": "2026-03-31 10:26:54",
-      "last_seen": "2026-04-04 00:47:08"
+      "last_seen": "2026-04-05 00:47:05"
     },
     "9e331a72-8b82-4dfb-857b-c273d2b70ad9": {
       "name": "Browser-h0y5",
