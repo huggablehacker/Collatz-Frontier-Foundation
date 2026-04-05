@@ -1,4 +1,4 @@
-# Collatz Frontier
+# Collatz Frontier Foundation
 
 [![GitHub](https://img.shields.io/badge/GitHub-huggablehacker%2FCollatz--Frontier-blue?logo=github)](https://github.com/huggablehacker/Collatz-Frontier)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
