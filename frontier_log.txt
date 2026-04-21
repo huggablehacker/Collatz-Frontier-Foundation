@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-04-20 01:00:00 UTC  (2026-04-19 20:00:00 EST)
+Report generated : 2026-04-21 01:00:00 UTC  (2026-04-20 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147911462880549857
-  Offset from 2^68 : +6,283,527,724,001
-  Numbers covered  : ~7,868,604,976,000
-  Odd tested       : 3,934,302,488,000
+  Next n to test   : 295147911695151549857
+  Offset from 2^68 : +6,515,798,724,001
+  Numbers covered  : ~8,178,354,976,000
+  Odd tested       : 4,089,177,488,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 11,327,956
+  Chunks completed : 11,637,706
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,13 +23,13 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=1,104,613,500,000  chunks=2,209,227  avg= 4,555,041/sec
+      tested=1,134,507,500,000  chunks=2,269,015  avg= 4,571,525/sec
    2. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=925,419,500,000  chunks=1,850,839  avg=   540,633/sec
+      tested=970,904,000,000  chunks=1,941,808  avg=   540,219/sec
    3. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=847,985,000,000  chunks=1,695,970  avg=   494,980/sec
+      tested=892,268,500,000  chunks=1,784,537  avg=   496,066/sec
    4. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=718,298,000,000  chunks=1,436,596  avg=   418,904/sec
+      tested=753,511,000,000  chunks=1,507,022  avg=   418,534/sec
    5. DESKTOP-IU5CS8D             
       tested=322,195,000,000  chunks= 644,390  avg= 3,474,654/sec
    6. DESKTOP-87NS8M9               [bb7fb2f7…]
