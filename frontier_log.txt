@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-04-22 01:08:06 UTC  (2026-04-21 20:08:06 EST)
+Report generated : 2026-04-23 01:00:00 UTC  (2026-04-22 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147912077551549857
-  Offset from 2^68 : +6,898,198,724,001
-  Numbers covered  : ~8,618,629,976,000
-  Odd tested       : 4,309,314,988,000
+  Next n to test   : 295147912504932549857
+  Offset from 2^68 : +7,325,579,724,001
+  Numbers covered  : ~9,141,475,976,000
+  Odd tested       : 4,570,737,988,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 12,077,981
+  Chunks completed : 12,600,827
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,17 +23,17 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=1,200,000,000,000  chunks=2,400,000  avg= 4,610,086/sec
+      tested=1,266,356,500,000  chunks=2,532,713  avg= 4,647,124/sec
    2. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=1,018,950,000,000  chunks=2,037,900  avg=   541,076/sec
+      tested=1,064,925,500,000  chunks=2,129,851  avg=   541,083/sec
    3. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=937,579,500,000  chunks=1,875,159  avg=   497,467/sec
+      tested=982,314,000,000  chunks=1,964,628  avg=   498,713/sec
    4. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=788,534,500,000  chunks=1,577,069  avg=   417,991/sec
+      tested=824,073,000,000  chunks=1,648,146  avg=   417,977/sec
    5. DESKTOP-IU5CS8D             
-      tested=339,653,000,000  chunks= 679,306  avg= 3,474,234/sec
+      tested=381,949,500,000  chunks= 763,899  avg= 3,505,698/sec
    6. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=  8,806,500,000  chunks=  17,613  avg=   325,784/sec
+      tested= 35,328,000,000  chunks=  70,656  avg=   335,819/sec
    7. DESKTOP-87NS8M9               [bb7fb2f7…]
       tested=  8,806,000,000  chunks=  17,612  avg= 1,279,078/sec
    8. ITS-SL23-3890-WW              [60b53a8b…]
