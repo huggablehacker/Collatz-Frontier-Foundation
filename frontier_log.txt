@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-06-07 01:00:00 UTC  (2026-06-06 20:00:00 EST)
+Report generated : 2026-06-08 01:00:00 UTC  (2026-06-07 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147923397282549857
-  Offset from 2^68 : +18,217,929,724,001
-  Numbers covered  : ~24,179,353,976,000
-  Odd tested       : 12,089,676,988,000
+  Next n to test   : 295147923686068549857
+  Offset from 2^68 : +18,506,715,724,001
+  Numbers covered  : ~24,491,398,976,000
+  Odd tested       : 12,245,699,488,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 27,638,705
+  Chunks completed : 27,950,750
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,15 +23,15 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=2,914,461,500,000  chunks=5,828,923  avg=   501,142/sec
+      tested=2,955,931,500,000  chunks=5,911,863  avg=   500,906/sec
    2. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=2,820,511,500,000  chunks=5,641,023  avg=   484,797/sec
+      tested=2,861,255,000,000  chunks=5,722,510  avg=   484,672/sec
    3. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=2,427,780,500,000  chunks=4,855,561  avg=   416,902/sec
+      tested=2,465,276,500,000  chunks=4,930,553  avg=   417,204/sec
    4. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=2,270,439,500,000  chunks=4,540,879  avg= 2,172,643/sec
+      tested=2,278,301,000,000  chunks=4,556,602  avg= 2,165,310/sec
    5. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=1,225,984,500,000  chunks=2,451,969  avg=   336,393/sec
+      tested=1,254,436,000,000  chunks=2,508,872  avg=   336,929/sec
    6. DESKTOP-IU5CS8D             
       tested=414,708,000,000  chunks= 829,416  avg= 3,510,299/sec
    7. DESKTOP-87NS8M9               [bb7fb2f7…]
