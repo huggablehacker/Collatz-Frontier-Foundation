@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-08-01 01:00:00 UTC  (2026-07-31 20:00:00 EST)
+Report generated : 2026-08-02 01:00:00 UTC  (2026-08-01 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147939141118549857
-  Offset from 2^68 : +33,961,765,724,001
-  Numbers covered  : ~40,752,361,976,000
-  Odd tested       : 20,376,180,988,000
+  Next n to test   : 295147939462156549857
+  Offset from 2^68 : +34,282,803,724,001
+  Numbers covered  : ~41,080,382,976,000
+  Odd tested       : 20,540,191,488,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 44,211,713
+  Chunks completed : 44,539,734
   Chunk size       : 500,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,13 +23,13 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=5,190,620,500,000  chunks=10,381,241  avg=   493,466/sec
+      tested=5,227,247,000,000  chunks=10,454,494  avg=   492,934/sec
    2. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=5,008,849,000,000  chunks=10,017,698  avg=   475,978/sec
+      tested=5,056,386,500,000  chunks=10,112,773  avg=   476,622/sec
    3. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=4,597,072,500,000  chunks=9,194,145  avg=   436,530/sec
+      tested=4,638,487,000,000  chunks=9,276,974  avg=   436,913/sec
    4. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=2,818,440,000,000  chunks=5,636,880  avg=   354,974/sec
+      tested=2,856,872,000,000  chunks=5,713,744  avg=   356,434/sec
    5. ITS-SL23-3890                 [0bd2c1bb…]
       tested=2,287,145,500,000  chunks=4,574,291  avg= 2,156,014/sec
    6. DESKTOP-IU5CS8D             
