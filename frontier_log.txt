@@ -1,19 +1,19 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-08-16 01:00:00 UTC  (2026-08-15 20:00:00 EST)
+Report generated : 2026-08-17 01:00:00 UTC  (2026-08-16 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147943684823609857
-  Offset from 2^68 : +38,505,470,784,001
-  Numbers covered  : ~45,439,909,668,000
-  Odd tested       : 22,719,954,834,000
+  Next n to test   : 295147944157461553857
+  Offset from 2^68 : +38,978,108,728,001
+  Numbers covered  : ~45,956,678,668,000
+  Odd tested       : 22,978,339,334,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 48,900,429
-  Chunk size       : 500,000 odd numbers
+  Chunks completed : 49,151,054
+  Chunk size       : 2,000,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
 MILESTONE CROSSINGS
@@ -22,26 +22,18 @@ MILESTONE CROSSINGS
 
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
-   1. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=5,713,150,500,000  chunks=11,426,301  avg=   484,008/sec
-   2. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=5,708,362,500,000  chunks=11,416,725  avg=   483,511/sec
+   1. Collatz-Frontier-Worker2      [f65182fc…]
+      tested=5,753,331,500,000  chunks=11,476,396  avg=   483,937/sec
+   2. Collatz-Frontier-Worker1      [1bc56ada…]
+      tested=5,748,452,500,000  chunks=11,471,762  avg=   483,606/sec
    3. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=5,229,243,500,000  chunks=10,458,487  avg=   442,623/sec
+      tested=5,270,319,500,000  chunks=10,512,880  avg=   442,984/sec
    4. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=3,307,997,000,000  chunks=6,615,994  avg=   363,674/sec
+      tested=3,332,206,500,000  chunks=6,650,670  avg=   363,224/sec
    5. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=2,287,145,500,000  chunks=4,574,291  avg= 2,156,014/sec
-   6. DESKTOP-IU5CS8D             
-      tested=414,708,000,000  chunks= 829,416  avg= 3,510,299/sec
-   7. ITS-SL23-3890               
-      tested= 43,554,000,000  chunks=  87,108  avg= 4,914,781/sec
-   8. DESKTOP-87NS8M9               [bb7fb2f7…]
-      tested=  8,806,000,000  chunks=  17,612  avg= 1,279,078/sec
-   9. ITS-SL23-3890-WW              [60b53a8b…]
-      tested=  2,698,264,000  chunks=1,349,132  avg=   278,182/sec
-  10. ITS-SL23-3890-WW              [c64a8178…]
-      tested=  2,189,086,000  chunks=1,094,543  avg=   498,417/sec
+      tested=2,873,987,988,000  chunks=9,038,095  avg= 2,344,652/sec
+   6. Sanhao electronic             [f60c6afe…]
+      tested=      2,346,000  chunks=   1,173  avg=    66,249/sec
 
 ========================================================================
 This file is updated automatically every night at 8:00 PM EST.
