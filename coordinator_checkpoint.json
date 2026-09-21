@@ -1,55 +1,55 @@
 {
-  "next_n": 295147967233786041857,
+  "next_n": 295147967763578041857,
   "chunk_size": 2000000,
-  "chunks_issued": 55520149,
-  "chunks_done": 55514731,
-  "total_tested": 35705693334000,
+  "chunks_issued": 55673272,
+  "chunks_done": 55667843,
+  "total_tested": 36011917334000,
   "fails": 0,
   "worker_stats": {
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
-      "chunks": 12060682,
-      "tested": 6926292500000,
+      "chunks": 12077500,
+      "tested": 6959928500000,
       "fails": 0,
-      "total_sec": 14815351.837364912,
+      "total_sec": 14901499.096951246,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-09-20 00:59:55"
+      "last_seen": "2026-09-21 00:59:56"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
-      "chunks": 11195348,
-      "tested": 6635255500000,
+      "chunks": 11216843,
+      "tested": 6678245500000,
       "fails": 0,
-      "total_sec": 14824868.695640564,
+      "total_sec": 14910975.613930464,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-09-20 00:59:58"
+      "last_seen": "2026-09-21 00:59:59"
     },
     "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
       "name": "Collatz-Frontier-Worker2",
-      "chunks": 12234656,
-      "tested": 7269851500000,
+      "chunks": 12256099,
+      "tested": 7312737500000,
       "fails": 0,
-      "total_sec": 14815898.251390934,
+      "total_sec": 14901996.137228966,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-09-20 00:59:58"
+      "last_seen": "2026-09-21 00:59:59"
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
-      "chunks": 12999014,
-      "tested": 10795825988000,
+      "chunks": 13079027,
+      "tested": 10955851988000,
       "fails": 0,
-      "total_sec": 1968931.8857225843,
+      "total_sec": 1984395.0886809297,
       "first_seen": "2026-03-31 00:31:19",
-      "last_seen": "2026-09-20 00:59:59"
+      "last_seen": "2026-09-20 21:30:22"
     },
     "ac276d4f-178f-44a9-8b34-448b3e7034df": {
       "name": "Collatz-Frontier-Worker3",
-      "chunks": 7023780,
-      "tested": 4078426500000,
+      "chunks": 7037123,
+      "tested": 4105112500000,
       "fails": 0,
-      "total_sec": 12030819.773998976,
+      "total_sec": 12114209.88924241,
       "first_seen": "2026-04-21 16:40:41",
-      "last_seen": "2026-09-20 00:59:54"
+      "last_seen": "2026-09-21 00:59:54"
     },
     "f60c6afe-09e0-4568-8eea-3abb86199bb6": {
       "name": "Sanhao electronic",
@@ -87,35 +87,35 @@
       "hostname": "Collatz-Frontier-Worker2",
       "ip": "164.92.83.33",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-09-20 00:59:58"
+      "last_seen": "2026-09-21 00:59:59"
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
       "hostname": "Collatz-Frontier-Worker1",
       "ip": "64.23.159.163",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-09-20 00:59:55"
+      "last_seen": "2026-09-21 00:59:56"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
       "hostname": "Collatz-Frontier-Worker0",
       "ip": "164.92.65.173",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-09-20 00:59:58"
+      "last_seen": "2026-09-21 00:59:59"
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
       "hostname": "ITS-SL23-3890",
-      "ip": "173.187.45.56",
+      "ip": "71.7.108.165",
       "first_seen": "2026-03-31 10:26:54",
-      "last_seen": "2026-09-20 00:59:59"
+      "last_seen": "2026-09-20 21:30:22"
     },
     "ac276d4f-178f-44a9-8b34-448b3e7034df": {
       "name": "Collatz-Frontier-Worker3",
       "hostname": "Collatz-Frontier-Worker3",
       "ip": "159.223.171.127",
       "first_seen": "2026-04-21 16:40:38",
-      "last_seen": "2026-09-20 00:59:54"
+      "last_seen": "2026-09-21 00:59:54"
     },
     "f60c6afe-09e0-4568-8eea-3abb86199bb6": {
       "name": "@sanhao2",
