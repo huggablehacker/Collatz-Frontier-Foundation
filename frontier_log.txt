@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-09-21 01:00:00 UTC  (2026-09-20 20:00:00 EST)
+Report generated : 2026-09-22 01:00:00 UTC  (2026-09-21 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147967763578041857
-  Offset from 2^68 : +62,584,225,216,001
-  Numbers covered  : ~72,023,834,668,000
-  Odd tested       : 36,011,917,334,000
+  Next n to test   : 295147968009454041857
+  Offset from 2^68 : +62,830,101,216,001
+  Numbers covered  : ~72,330,270,668,000
+  Odd tested       : 36,165,135,334,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 55,667,843
+  Chunks completed : 55,744,452
   Chunk size       : 2,000,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -23,15 +23,15 @@ MILESTONE CROSSINGS
 TOP 10 WORKERS (all-time)
 ------------------------------------------------------------------------
    1. ITS-SL23-3890                 [0bd2c1bb…]
-      tested=10,955,851,988,000  chunks=13,079,027  avg= 5,521,003/sec
+      tested=10,966,975,988,000  chunks=13,084,589  avg= 5,523,598/sec
    2. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=7,312,737,500,000  chunks=12,256,099  avg=   490,722/sec
+      tested=7,356,351,500,000  chunks=12,277,906  avg=   490,813/sec
    3. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=6,959,928,500,000  chunks=12,077,500  avg=   467,062/sec
+      tested=6,991,074,500,000  chunks=12,093,073  avg=   466,456/sec
    4. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=6,678,245,500,000  chunks=11,216,843  avg=   447,874/sec
+      tested=6,719,669,500,000  chunks=11,237,555  avg=   448,065/sec
    5. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=4,105,112,500,000  chunks=7,037,123  avg=   338,868/sec
+      tested=4,131,022,500,000  chunks=7,050,078  avg=   338,673/sec
    6. Sanhao electronic             [f60c6afe…]
       tested=      2,346,000  chunks=   1,173  avg=    66,249/sec
 
