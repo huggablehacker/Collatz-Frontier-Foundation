@@ -1,37 +1,37 @@
 {
-  "next_n": 295147976188686041857,
+  "next_n": 295147976418706041857,
   "chunk_size": 2000000,
-  "chunks_issued": 57801497,
-  "chunks_done": 57796048,
-  "total_tested": 40268327334000,
+  "chunks_issued": 57859835,
+  "chunks_done": 57854382,
+  "total_tested": 40384995334000,
   "fails": 0,
   "worker_stats": {
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
-      "chunks": 12644187,
-      "tested": 8093302500000,
+      "chunks": 12661401,
+      "tested": 8127730500000,
       "fails": 0,
-      "total_sec": 17571587.19656515,
+      "total_sec": 17657702.22173333,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-10-22 00:59:57"
+      "last_seen": "2026-10-23 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
-      "chunks": 11908348,
-      "tested": 8061255500000,
+      "chunks": 11927578,
+      "tested": 8099715500000,
       "fails": 0,
-      "total_sec": 17579781.717012644,
+      "total_sec": 17665858.93556595,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-10-22 00:59:59"
+      "last_seen": "2026-10-23 00:59:59"
     },
     "f65182fc-99da-4cb9-8a57-f7832dcecd46": {
       "name": "Collatz-Frontier-Worker2",
-      "chunks": 12762924,
-      "tested": 8326387500000,
+      "chunks": 12774502,
+      "tested": 8349543500000,
       "fails": 0,
-      "total_sec": 17572911.287543535,
+      "total_sec": 17659057.02316594,
       "first_seen": "2026-03-31 00:31:22",
-      "last_seen": "2026-10-22 00:59:53"
+      "last_seen": "2026-10-23 00:59:53"
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
@@ -44,12 +44,12 @@
     },
     "ac276d4f-178f-44a9-8b34-448b3e7034df": {
       "name": "Collatz-Frontier-Worker3",
-      "chunks": 7394749,
-      "tested": 4820364500000,
+      "chunks": 7405061,
+      "tested": 4840988500000,
       "fails": 0,
-      "total_sec": 14710222.677137852,
+      "total_sec": 14794170.717494726,
       "first_seen": "2026-04-21 16:40:41",
-      "last_seen": "2026-10-22 00:59:56"
+      "last_seen": "2026-10-23 00:59:52"
     },
     "f60c6afe-09e0-4568-8eea-3abb86199bb6": {
       "name": "Sanhao electronic",
@@ -87,21 +87,21 @@
       "hostname": "Collatz-Frontier-Worker2",
       "ip": "164.92.83.33",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-10-22 00:59:53"
+      "last_seen": "2026-10-23 00:59:53"
     },
     "1bc56ada-8d9d-4c94-bc04-ef358eb54b94": {
       "name": "Collatz-Frontier-Worker1",
       "hostname": "Collatz-Frontier-Worker1",
       "ip": "64.23.159.163",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-10-22 00:59:57"
+      "last_seen": "2026-10-23 00:59:59"
     },
     "2b2037b2-852b-424e-b91e-230acaccdf2a": {
       "name": "Collatz-Frontier-Worker0",
       "hostname": "Collatz-Frontier-Worker0",
       "ip": "164.92.65.173",
       "first_seen": "2026-03-31 00:31:21",
-      "last_seen": "2026-10-22 00:59:59"
+      "last_seen": "2026-10-23 00:59:59"
     },
     "0bd2c1bb-ed26-43ac-84a1-2dbbc54333a8": {
       "name": "ITS-SL23-3890",
@@ -115,7 +115,7 @@
       "hostname": "Collatz-Frontier-Worker3",
       "ip": "159.223.171.127",
       "first_seen": "2026-04-21 16:40:38",
-      "last_seen": "2026-10-22 00:59:56"
+      "last_seen": "2026-10-23 00:59:52"
     },
     "f60c6afe-09e0-4568-8eea-3abb86199bb6": {
       "name": "@sanhao2",
