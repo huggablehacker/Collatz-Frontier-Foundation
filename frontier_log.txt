@@ -1,18 +1,18 @@
 COLLATZ FRONTIER — NIGHTLY STATUS REPORT
 ========================================================================
-Report generated : 2026-11-21 01:00:00 UTC  (2026-11-20 20:00:00 EST)
+Report generated : 2026-11-22 01:00:00 UTC  (2026-11-21 20:00:00 EST)
 Repository       : https://github.com/huggablehacker/Collatz-Frontier-Foundation
 
 FRONTIER
 ------------------------------------------------------------------------
-  Next n to test   : 295147983747930041857
-  Offset from 2^68 : +78,568,577,216,001
-  Numbers covered  : ~88,116,826,668,000
-  Odd tested       : 44,058,413,334,000
+  Next n to test   : 295147984019350041857
+  Offset from 2^68 : +78,839,997,216,001
+  Numbers covered  : ~88,388,246,668,000
+  Odd tested       : 44,194,123,334,000
 
 PROGRESS
 ------------------------------------------------------------------------
-  Chunks completed : 59,691,091
+  Chunks completed : 59,758,946
   Chunk size       : 2,000,000 odd numbers
   FAILs found      : 0  (none — conjecture holds for all tested)
 
@@ -25,13 +25,13 @@ TOP 10 WORKERS (all-time)
    1. ITS-SL23-3890                 [0bd2c1bb…]
       tested=10,966,975,988,000  chunks=13,084,589  avg= 5,523,598/sec
    2. Collatz-Frontier-Worker0      [2b2037b2…]
-      tested=9,259,875,500,000  chunks=12,507,658  avg=   459,259/sec
+      tested=9,299,921,500,000  chunks=12,527,681  avg=   459,284/sec
    3. Collatz-Frontier-Worker1      [1bc56ada…]
-      tested=9,192,936,500,000  chunks=13,194,004  avg=   456,097/sec
+      tested=9,229,000,500,000  chunks=13,212,036  avg=   455,938/sec
    4. Collatz-Frontier-Worker2      [f65182fc…]
-      tested=9,100,407,500,000  chunks=13,149,934  avg=   451,439/sec
+      tested=9,127,517,500,000  chunks=13,163,489  avg=   450,856/sec
    5. Collatz-Frontier-Worker3      [ac276d4f…]
-      tested=5,538,176,500,000  chunks=7,753,655  avg=   321,610/sec
+      tested=5,570,666,500,000  chunks=7,769,900  avg=   321,948/sec
    6. Sanhao electronic             [f60c6afe…]
       tested=      2,346,000  chunks=   1,173  avg=    66,249/sec
 
